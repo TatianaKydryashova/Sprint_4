@@ -13,7 +13,7 @@ public class AccountTest {
         this.expectedResult = expectedResult;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Test name: {0}, Test result: {1}")
     public static Object[][] getNameData() {
         return new Object[][] {
                 { "Тимоти Шаламе", true},
@@ -25,6 +25,13 @@ public class AccountTest {
                 { " Timoty Shalame ", false},
                 { "Тимоти Тимоти ТимотиТимотиТимоти-Шаламе ", false},
                 { "Ти", false},
+                { "Тим", false},
+                { "Т м", true},
+                { "Тимо", false},
+                { "ТимотиТимотиТимоти", false},
+                { "ТимотиТиотиТимотии", false},
+                { "ТимотиТи тиТимотии", true},
+                { "ТимотиТимотиТимотиии", false},
                 { "", false},
                 {null, false},
         };
